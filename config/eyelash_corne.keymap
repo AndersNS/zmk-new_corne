@@ -130,7 +130,7 @@
                                                  &trans        &trans        &trans                                             &trans  &trans  &trans
             >;
 
-            label = "adjust";
+            label = "ADJUST";
         };
     };
 };
