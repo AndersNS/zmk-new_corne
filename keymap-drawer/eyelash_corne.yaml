@@ -62,7 +62,7 @@ layers:
   - F8
   - F9
   - F10
-  - F11
+  - $$mdi:backspace-reverse-outline$$
   - {t: '$$mdi:transfer$$', type: trans}
   - F5
   - F6
@@ -76,7 +76,7 @@ layers:
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-up-bold$$
   - $$mdi:arrow-right-bold$$
-  - {t: '$$mdi:transfer$$', type: trans}
+  - F11
   - F12
   - {t: '$$mdi:transfer$$', type: trans}
   - F9
