@@ -7,7 +7,7 @@ layers:
   - E
   - R
   - T
-  - $$mdi:arrow-up-bold$$
+  - PgUp
   - Y
   - U
   - I
@@ -20,9 +20,9 @@ layers:
   - D
   - F
   - G
-  - $$mdi:arrow-left-bold$$
+  - HOME
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - $$mdi:arrow-right-bold$$
+  - END
   - H
   - J
   - K
@@ -36,7 +36,7 @@ layers:
   - V
   - B
   - PLAY PAUSE
-  - $$mdi:arrow-down-bold$$
+  - PgDn
   - N
   - M
   - {t: ',', s: <}
