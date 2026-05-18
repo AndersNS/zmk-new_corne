@@ -160,17 +160,17 @@
             sensor-bindings = <&scroll_encoder>;
         };
 
-        linux_scand {
+        linux_flag {
             display-name = "LINUX";
 
-            // Mirrors SYMBOL layer; only å ø æ positions are overridden with
-            // Linux Scroll Lock sequences. All other keys pass through.
+            // Flag layer: toggled on/off to enable linux Norwegian characters.
+            // Actual bindings are in the conditional linux_scand layer (2+4).
 
             bindings = <
-&trans  &trans      &trans      &trans      &trans  &trans                    &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &no_aa_lnx  &no_oe_lnx  &no_ae_lnx  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans      &trans      &trans      &trans  &trans  &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans      &trans  &trans                                    &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                                    &trans  &trans  &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -186,6 +186,21 @@
 
             label = "ADJUST";
         };
+
+        linux_scand {
+            display-name = "LNX_SYM";
+
+            // Conditional layer (2+4): Norwegian chars via Scroll Lock sequences.
+
+            bindings = <
+&trans  &trans      &trans      &trans      &trans  &trans                    &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &no_aa_lnx  &no_oe_lnx  &no_ae_lnx  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans      &trans      &trans  &trans  &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans      &trans  &trans                                    &trans  &trans  &trans
+            >;
+
+            sensor-bindings = <&scroll_encoder>;
+        };
     };
 
     conditional_layers {
@@ -194,6 +209,11 @@
         Adjust {
             if-layers = <1 2>;
             then-layer = <5>;
+        };
+
+        LinuxScand {
+            if-layers = <2 4>;
+            then-layer = <6>;
         };
     };
 };
