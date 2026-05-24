@@ -164,13 +164,13 @@
             display-name = "LINUX";
 
             // Flag layer: toggled on/off to enable linux Norwegian characters.
-            // Actual bindings are in the conditional linux_scand layer (2+4).
+            // Overrides mo 2 with mo 6 so the linux symbol layer is used instead.
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                                    &trans  &trans  &trans
+                        &trans  &trans  &trans                                    &trans  &mo 6  &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -190,13 +190,13 @@
         linux_scand {
             display-name = "LNX_SYM";
 
-            // Conditional layer (2+4): Norwegian chars via Scroll Lock sequences.
+            // Full symbol layer with Norwegian chars via Scroll Lock sequences.
 
             bindings = <
-&trans  &trans      &trans      &trans      &trans  &trans                    &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &no_aa_lnx  &no_oe_lnx  &no_ae_lnx  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans      &trans      &trans      &trans  &trans  &trans            &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans      &trans  &trans                                    &trans  &trans  &trans
+&trans  &kp EXCL    &kp AT      &kp HASH     &kp DLLR  &kp PRCNT                            &mmv MOVE_UP                     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
+&trans  &no_aa_lnx  &no_oe_lnx  &no_ae_lnx   &trans    &trans               &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
+&trans  &trans      &trans      &none         &none     &trans     &trans                    &mmv MOVE_DOWN                   &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
+                                &trans        &trans    &kp SPACE                                                             &kp RET    &trans     &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -211,9 +211,9 @@
             then-layer = <5>;
         };
 
-        LinuxScand {
-            if-layers = <2 4>;
-            then-layer = <6>;
+        AdjustLinux {
+            if-layers = <1 6>;
+            then-layer = <5>;
         };
     };
 };
